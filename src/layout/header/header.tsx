@@ -1,7 +1,7 @@
 import { HeaderProps } from "./header.props";
 
-const Header = ({}: HeaderProps): JSX.Element => {
-  return <div>Header</div>;
+const Header = ({ ...props }: HeaderProps): JSX.Element => {
+  return <div {...props}>Header</div>;
 };
 
 export default Header;
