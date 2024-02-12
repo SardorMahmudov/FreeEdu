@@ -3,10 +3,10 @@ import styles from "./tag.module.css";
 import cn from "classnames";
 import { TagPros } from "./tag.props";
 
-const Tag = ({ size = "m", color = "primary", children, ...props }: TagPros): JSX.Element => {
+const Tag = ({ size = "m", color = "primary", children, className, ...props }: TagPros): JSX.Element => {
   return (
     <div
-      className={cn(styles.tag, {
+      className={cn(styles.tag, className, {
         [styles.s]: size === "s",
         [styles.m]: size === "m",
         [styles.red]: color === "red",
