@@ -2,18 +2,24 @@ import { ProductProps } from "./product.props";
 import cn from "classnames";
 import styles from "./product.module.css";
 import Card from "../card/card";
-import { convertToUSD } from "../../helpers/helpers";
+import { convertToUSD, dedectedReview } from "../../helpers/helpers";
 import Tag from "../tag/tag";
 import Image from "next/image";
 import Rating from "../rating/rating";
 import Divider from "../divider/divider";
 import Button from "../button/button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Review from "../review/reivew";
 import ReviewForm from "../review-form/review-form";
 
 const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
+  const reviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReview = () => {
+    setReviewOpen(true);
+    reviewRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div className={className} {...props}>
@@ -34,7 +40,9 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
           {convertToUSD(product.credit)}/<span className={styles.month}>month</span>
         </div>
         <div className={styles.rating}>
-          <Rating rating={product.initialRating} />
+          <a href="#review" onClick={scrollToReview}>
+            <Rating rating={product.initialRating} />
+          </a>
         </div>
         <div className={styles.tags}>
           {product.tags.length &&
@@ -46,7 +54,11 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
         </div>
         <div className={styles.priceTitle}>Price</div>
         <div className={styles.creditTitle}>Credit</div>
-        <div className={styles.rateTitle}>{product.reviewCount} reviews</div>
+        <div className={styles.rateTitle}>
+          <a href="#review" onClick={scrollToReview}>
+            {product.reviewCount} {dedectedReview(product.reviewCount)}
+          </a>
+        </div>
 
         <Divider className={styles.hr} />
 
@@ -94,6 +106,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
       </Card>
       <Card
         color="white"
+        ref={reviewRef}
         className={cn(styles.review, {
           [styles.opened]: reviewOpen,
           [styles.closed]: !reviewOpen,
