@@ -4,7 +4,7 @@ import cn from "classnames";
 import styles from "./sidebar.module.css";
 import Logo from "../logo.svg";
 import Link from "next/link";
-import { Divider } from "../../components";
+import { Divider, Search } from "../../components";
 const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
     <div className={cn(className, styles.sidebar)} {...props}>
@@ -12,7 +12,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
         <Logo />
         <Divider />
       </Link>
-      <div>Search...</div>
+      <Search />
       <Menu />
     </div>
   );
