@@ -1,28 +1,28 @@
 export enum PageCategory {
-  Courses,
-  Books,
+	Courses,
+	Books,
 }
 
 export interface HhData {
-  count: number;
-  juniorSalary: number;
-  middleSalary: number;
-  seniorSalary: number;
+	count: number;
+	juniorSalary: number;
+	middleSalary: number;
+	seniorSalary: number;
 }
 
 export interface AdvatnageData {
-  title: string;
-  description: string;
-  id: string;
+	title: string;
+	description: string;
+	id: string;
 }
 
 export interface PageModel {
-  _id: string;
-  alias: string;
-  title: string;
-  tags: string[];
-  description: string;
-  hh: HhData;
-  advantages: AdvatnageData[];
-  category: string;
+	_id: string;
+	alias: string;
+	title: string;
+	tags: string[];
+	description: string;
+	hh: HhData;
+	advantages: AdvatnageData[];
+	category: string;
 }

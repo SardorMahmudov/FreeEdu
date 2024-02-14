@@ -1,5 +1,5 @@
 .sidebar {
-  display: grid;
-  align-content: flex-start;
-  gap: 30px;
+	display: grid;
+	align-content: flex-start;
+	gap: 30px;
 }
