@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { useContext } from "react";
+import { AppContext } from "../../context/app.context";
 import { firstLevelMenu } from "../../helpers/constants";
 import styles from "./menu.module.css";
 import cn from "classnames";
 import { IFirstLevelMenu, PageItem } from "../../interfaces/menu.interface";
 import { useRouter } from "next/router";
-import { AppContext } from "../../context/app.context";
 import { motion } from "framer-motion";
 
 const Menu = (): JSX.Element => {
@@ -14,7 +14,7 @@ const Menu = (): JSX.Element => {
 
   const variants = {
     visible: {
-      marginBotto: 20,
+      marginBottom: 20,
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.1,
@@ -104,9 +104,8 @@ const Menu = (): JSX.Element => {
 
   const buildThirdLevel = (pages: PageItem[], rotue: string) => {
     return pages.map((p) => (
-      <motion.div variants={variantsChildren}>
+      <motion.div key={p._id} variants={variantsChildren}>
         <Link
-          key={p._id}
           href={`/${rotue}/${p._id}`}
           className={cn(styles.thirdLevel, {
             [styles.thirdLevelActive]: `/${rotue}/${p._id}` === router.asPath,
