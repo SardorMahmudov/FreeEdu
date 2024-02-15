@@ -4,8 +4,7 @@ import { Button, Card, Heading, ScrollUp, Text } from "../../components";
 import { company, timeLineList } from "../../helpers/constants";
 import Footer from "../../layout/header/footer/footer";
 import Navbar from "../../layout/navbar/navbar";
-import styles from "./home-page-compont.module.css";
-// import { Timeline, TimelineEvent } from 'react-event-timeline';
+import styles from "./home-page-component.module.css";
 
 const HomePageComponent = () => {
   return (
@@ -39,22 +38,11 @@ const HomePageComponent = () => {
       <div className={styles.timeline}>
         <Heading tag="h3">What we can teach you</Heading>
         <div className={styles.timelineCard}>
-          {/* <Timeline lineColor='#ddddd'> */}
           {timeLineList.map(({ Icon, title, text }, idx) => (
-            // <TimelineEvent
-            // 	key={idx}
-            // 	title={title}
-            // 	icon={<Icon />}
-            // 	bubbleStyle={{ borderColor: '#140342', backgroundColor: '#fff' }}
-            // 	contentStyle={{ border: 'none', boxShadow: 'none', backgroundColor: 'transparent' }}
-            // 	titleStyle={{ fontSize: '20px' }}
-            // >
             <Card color="white" style={{ padding: 20 }}>
               <Text>{text}</Text>
             </Card>
-            // </TimelineEvent>
           ))}
-          {/* </Timeline> */}
         </div>
         <div className={styles.mobileTimeline}>
           {timeLineList.map((data, idx) => (

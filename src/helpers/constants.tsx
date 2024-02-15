@@ -1,7 +1,7 @@
-import { PageCategory } from "../interfaces/page.interface";
-import { IFirstLevelMenu } from "../interfaces/menu.interface";
-import CoursesIcon from "./icons/courses.svg";
-import BooksIcon from "./icons/books.svg";
+import { PageCategory } from '../interfaces/page.interface';
+import { IFirstLevelMenu } from '../interfaces/menu.interface';
+import CoursesIcon from './icons/courses.svg';
+import BooksIcon from './icons/books.svg';
 import AmazonIcon from './icons/amazon.svg';
 import AmdIcon from './icons/amd.svg';
 import CiscoIcon from './icons/cisco.svg';
@@ -17,12 +17,12 @@ import { MdOutlineSettingsInputComponent } from 'react-icons/md';
 import { GrStripe } from 'react-icons/gr';
 
 export const firstLevelMenu: IFirstLevelMenu[] = [
-  { route: "courses", name: "Courses", icon: <CoursesIcon />, id: PageCategory.Courses },
-  { route: "books", name: "Books", icon: <BooksIcon />, id: PageCategory.Books },
+	{ route: 'courses', name: 'Courses', icon: <CoursesIcon />, id: PageCategory.Courses },
+	{ route: 'books', name: 'Books', icon: <BooksIcon />, id: PageCategory.Books },
 ];
 
 export const navLinks = [
-  { name: "Home", route: "/" },
+	{ name: 'Home', route: '/' },
 	{ name: 'About', route: '/courses/reactjs_id' },
 ];
 
